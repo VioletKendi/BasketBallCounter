@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_score_board"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.erickogi14gmail.basketballcounter.ScoreBoard"
+    tools:showIn="@layout/activity_score_board">
+    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+        android:id="@+id/android_material_design_spinner_round"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Round"
+
+        android:layout_alignParentTop="true"
+        android:textColorHint="@color/colorPrimary"
+        app:met_floatingLabel="normal" />
+    <ScrollView
+        android:layout_below="@id/android_material_design_spinner_round"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:background="@android:color/holo_green_light"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txt_team_a_name"
+                android:layout_margin="14dp"
+                android:text="TEAM A "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/txt_team_a_score"
+                android:text="SCORE A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btn_add_3_a"
+                    android:layout_margin="6dp"
+                    android:text="+3"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+                <Button
+                    android:id="@+id/btn_add_2_a"
+                    android:layout_margin="6dp"
+                    android:text="+2"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+                <Button
+                    android:id="@+id/btn_add_1_a"
+                    android:layout_margin="6dp"
+                    android:text="+1"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+                <Button
+                    android:id="@+id/btn_minus_1_a"
+                    android:layout_margin="6dp"
+                    android:text="-1"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:background="@android:color/holo_orange_dark"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txt_team_b_name"
+                android:layout_margin="14dp"
+                android:text="TEAM B "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/txt_team_b_score"
+                android:text="SCORE B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btn_add_3_b"
+                    android:layout_margin="6dp"
+                    android:text="+3"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+                <Button
+                    android:id="@+id/btn_add_2_b"
+                    android:layout_margin="6dp"
+                    android:text="+2"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+                <Button
+                    android:id="@+id/btn_add_1_b"
+                    android:layout_margin="6dp"
+                    android:text="+1"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+                <Button
+                    android:id="@+id/btn_minus_1_b"
+                    android:layout_margin="6dp"
+                    android:text="-1"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp" />
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    </android.support.v7.widget.CardView>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_alignParentBottom="true"
+        android:theme="@style/PrimaryButton"
+        android:text="SAVE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
