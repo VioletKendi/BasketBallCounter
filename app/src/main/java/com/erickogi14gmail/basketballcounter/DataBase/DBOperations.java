@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+
 import static com.erickogi14gmail.basketballcounter.DataBase.DBKeys.KEY_ID;
 import static com.erickogi14gmail.basketballcounter.DataBase.DBKeys.KEY_NAME_A;
 import static com.erickogi14gmail.basketballcounter.DataBase.DBKeys.KEY_NAME_B;
@@ -120,36 +122,80 @@ public class DBOperations {
         SQLiteDatabase db = dbHandler.getWritableDatabase();
         return db.delete(DBKeys.TABLE, KEY_ID + "=" + rowId, null) > 0;
     }
-    public Cursor getGameList() {
+    public ArrayList<Pojo> getGameList() {
         //Open connection to read only
         SQLiteDatabase db = dbHandler.getReadableDatabase();
-        String selectQuery =  "SELECT  rowid as " +
-                DBKeys.KEY_ROWID + "," +
-                DBKeys.KEY_ID + "," +
-                DBKeys.KEY_NAME_A + "," +
-                DBKeys.KEY_NAME_B + "," +
-                DBKeys.KEY_TEAM_ONE_R1 + "," +
-                DBKeys.KEY_TEAM_TWO_R1 + "," +
-
-                DBKeys.KEY_TEAM_ONE_R2 + "," +
-                DBKeys.KEY_TEAM_TWO_R2 + "," +
-
-                DBKeys.KEY_TEAM_ONE_R3 + "," +
-                DBKeys.KEY_TEAM_TWO_R3 + "," +
-
-                DBKeys.KEY_TEAM_ONE_R4 + "," +
-                DBKeys.KEY_TEAM_TWO_R4 + "," +
-
-                DBKeys.KEY_TEAM_ONE_R5 + "," +
-                DBKeys.KEY_TEAM_TWO_R5 + "," +
-
-                DBKeys.KEY_TEAM_ONE_T + "," +
-
-                DBKeys.KEY_TEAM_TWO_T +
-                " FROM " + DBKeys.TABLE;
 
 
-        Cursor cursor = db.rawQuery(selectQuery, null);
+        ArrayList<Pojo> data=new ArrayList<>();
+        String QUERY = "SELECT * FROM "+DBKeys.TABLE;
+
+
+
+//        String selectQuery =  "SELECT  rowid as " +
+//                DBKeys.KEY_ROWID + "," +
+//                DBKeys.KEY_ID + "," +
+//                DBKeys.KEY_NAME_A + "," +
+//                DBKeys.KEY_NAME_B + "," +
+//                DBKeys.KEY_TEAM_ONE_R1 + "," +
+//                DBKeys.KEY_TEAM_TWO_R1 + "," +
+//
+//                DBKeys.KEY_TEAM_ONE_R2 + "," +
+//                DBKeys.KEY_TEAM_TWO_R2 + "," +
+//
+//                DBKeys.KEY_TEAM_ONE_R3 + "," +
+//                DBKeys.KEY_TEAM_TWO_R3 + "," +
+//
+//                DBKeys.KEY_TEAM_ONE_R4 + "," +
+//                DBKeys.KEY_TEAM_TWO_R4 + "," +
+//
+//                DBKeys.KEY_TEAM_ONE_R5 + "," +
+//                DBKeys.KEY_TEAM_TWO_R5 + "," +
+//
+//                DBKeys.KEY_TEAM_ONE_T + "," +
+//
+//                DBKeys.KEY_TEAM_TWO_T +
+//                " FROM " + DBKeys.TABLE;
+
+
+        Cursor cursor = db.rawQuery(QUERY, null);
+
+        if(!cursor.isLast())
+        {
+            while (cursor.moveToNext())
+            {
+                Pojo pojo = new Pojo();
+
+                pojo.setGId(cursor.getInt(0));
+                pojo.setNAME_A(cursor.getString(1));
+                pojo.setNAME_B(cursor.getString(2));
+
+                pojo.setTEAM_ONE_R1(cursor.getInt(3));
+                pojo.setTEAM_TWO_R1(cursor.getInt(4));
+
+                pojo.setTEAM_ONE_R2(cursor.getInt(5));
+                pojo.setTEAM_TWO_R2(cursor.getInt(6));
+
+                pojo.setTEAM_ONE_R3(cursor.getInt(7));
+                pojo.setTEAM_TWO_R3(cursor.getInt(8));
+
+                pojo.setTEAM_ONE_R4(cursor.getInt(9));
+                pojo.setTEAM_TWO_R4(cursor.getInt(10));
+
+                pojo.setTEAM_ONE_R5(cursor.getInt(11));
+                pojo.setTEAM_TWO_R5(cursor.getInt(12));
+
+                pojo.setTEAM_ONE_T(cursor.getInt(13));
+                pojo.setTEAM_TWO_T(cursor.getInt(14));
+
+
+
+
+
+                data.add(pojo);
+            }
+        }
+        db.close();
         // looping through all rows and adding to list
 
         if (cursor == null) {
@@ -158,7 +204,7 @@ public class DBOperations {
             cursor.close();
             return null;
         }
-        return cursor;
+        return data;
 
 
     }

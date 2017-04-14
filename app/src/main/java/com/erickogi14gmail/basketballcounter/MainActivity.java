@@ -164,22 +164,24 @@ public void setListView(){
 
     ;
     dbOperations = new DBOperations(MainActivity.this);
-    cursor=dbOperations.getGameList();
+    //cursor=dbOperations.getGameList();
 
-    customAdapter = new CustomAdapter(MainActivity.this,  cursor, 0);
-    customAdapter.notifyDataSetChanged();
+   // customAdapter = new CustomAdapter(MainActivity.this,  cursor, 0);
+   // customAdapter.notifyDataSetChanged();
+
+    NewCustomAdapter adapter=new NewCustomAdapter(MainActivity.this,dbOperations.getGameList());
     listView = (ListView) findViewById(R.id.games_list_display);
-    if(customAdapter.isEmpty()){
-        Toast.makeText(MainActivity.this, "Empty", Toast.LENGTH_SHORT).show();
-        listView.setAdapter(customAdapter);
+  //  if(customAdapter.isEmpty()){
+  //      Toast.makeText(MainActivity.this, "Empty", Toast.LENGTH_SHORT).show();
+        listView.setAdapter(adapter);
+  //  }
+  //  else {
+        listView.setAdapter(adapter);
     }
-    else {
-        listView.setAdapter(customAdapter);
-    }
 
 
 
-}
+
 
     @Override
     public void onBackPressed() {
@@ -220,6 +222,7 @@ public void setListView(){
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            Toast.makeText(this, "mm", Toast.LENGTH_SHORT).show();
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
