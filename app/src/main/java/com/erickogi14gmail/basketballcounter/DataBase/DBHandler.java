@@ -22,7 +22,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TABLE_STUDENT);
+        db.execSQL(CREATE_TABLE);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(db);
 
     }
-    String CREATE_TABLE_STUDENT = "CREATE TABLE " + DBKeys.TABLE  + "("
+    String CREATE_TABLE = "CREATE TABLE " + DBKeys.TABLE  + "("
             + DBKeys.KEY_ID  + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
 
             + DBKeys.KEY_NAME_A + " TEXT, "
