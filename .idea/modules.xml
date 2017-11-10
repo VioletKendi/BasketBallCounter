@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BasketBallCounter.iml" filepath="$PROJECT_DIR$/BasketBallCounter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/BasketBallCounter.iml" filepath="$PROJECT_DIR$/.idea/BasketBallCounter.iml" />
+      <module fileurl="file://C:\Users\Eric\AndroidStudioProjects\BasketBallCounter\BasketBallCounter.iml" filepath="C:\Users\Eric\AndroidStudioProjects\BasketBallCounter\BasketBallCounter.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Eric\AndroidStudioProjects\BasketBallCounter\app\app.iml" filepath="C:\Users\Eric\AndroidStudioProjects\BasketBallCounter\app\app.iml" />
     </modules>
   </component>
 </project>

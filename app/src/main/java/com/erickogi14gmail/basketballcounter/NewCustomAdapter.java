@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.erickogi14gmail.basketballcounter.DataBase.Pojo;
-import com.erickogi14gmail.basketballcounter.R;
 
 import java.util.ArrayList;
 
@@ -27,7 +26,7 @@ public class NewCustomAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return listData.size();
+        return (null != listData ? listData.size() : 0);
     }
 
     @Override
